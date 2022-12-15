@@ -1,21 +1,16 @@
-
-namespace Services;
-
 using System.Net;
 using Amazon.S3;
 using Amazon.S3.Model;
-using FastEndpoints;
 using Models;
 
+namespace Services;
 public class DownloadService : IDownloadService
 {
-
     private readonly IAmazonS3 _s3Client;
     public DownloadService(IAmazonS3 s3Client)
     {
         _s3Client = s3Client;
     }
-
 
     public async Task<Models.MyResponse> MultiPartDownload(MyRequest request)
     {
@@ -46,13 +41,11 @@ public class DownloadService : IDownloadService
                     ContentString = Convert.ToBase64String(ms.ToArray()),
                     Content = ms.ToArray()
                 };
-
             }
         }
         catch (Exception e)
         {
             return null;
         }
-
     }
 }

@@ -1,16 +1,11 @@
-
-namespace Endpoints;
-
 using System.Net;
-using Amazon.S3;
-using Amazon.S3.Model;
 using FastEndpoints;
 using Models;
 using Services;
 
+namespace Endpoints;
 public class MultipartDownload : Endpoint<MyRequest, MyResponse>
 {
-
     private readonly IDownloadService _service;
     public MultipartDownload(IDownloadService service)
     {
